@@ -1,24 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/Shogun-Sun/AlgoGo/pkg/sorting"
+)
 
 func main() {
-	fmt.Println(BubbleSort([]int{1, 2, 3, 4, 5, 6, 7, 8}, "desc"))
-}
-
-func BubbleSort(elements []int, sortOrder string) []int {
-	for i := 0; i < len(elements); i++ {
-		for j := 0; j < len(elements)-i-1; j++ {
-			if sortOrder == "asc" {
-				if elements[j] > elements[j+1] {
-					elements[j], elements[j+1] = elements[j+1], elements[j]
-				}
-			} else {
-				if elements[j] < elements[j+1] {
-					elements[j], elements[j+1] = elements[j+1], elements[j]
-				}
-			}
-		}
-	}
-	return elements
+	fmt.Println(sorting.BubbleSort([]int{1, 2, 3, 4, 5, 6, 7, 8}, "asc"))
 }
