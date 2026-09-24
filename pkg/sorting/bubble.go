@@ -1,16 +1,14 @@
 package sorting
 
-func BubbleSort(elements []int, sortOrder string) []int {
-	for i := 0; i < len(elements); i++ {
+func BubbleSort(elements []int, order SortOrder) []int {
+	isAsc := order == Ascending
+	for i := range elements {
 		for j := 0; j < len(elements)-i-1; j++ {
-			if sortOrder == "asc" {
-				if elements[j] > elements[j+1] {
-					elements[j], elements[j+1] = elements[j+1], elements[j]
-				}
-			} else {
-				if elements[j] < elements[j+1] {
-					elements[j], elements[j+1] = elements[j+1], elements[j]
-				}
+			shouldSwap := (isAsc && elements[j] > elements[j+1]) ||
+				(!isAsc && elements[j] < elements[j+1])
+
+			if shouldSwap {
+				elements[j], elements[j+1] = elements[j+1], elements[j]
 			}
 		}
 	}

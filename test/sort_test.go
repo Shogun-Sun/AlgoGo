@@ -13,7 +13,7 @@ func BenchmarkBubbleSort(b *testing.B) {
 		data := generateSlice(10000)
 		b.StartTimer()
 
-		sorting.BubbleSort(data, "asc")
+		sorting.BubbleSort(data, sorting.Descending)
 	}
 }
 
