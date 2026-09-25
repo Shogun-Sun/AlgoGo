@@ -2,13 +2,6 @@ package sorting
 
 import "math/rand"
 
-type SortOrder string
-
-const (
-	Ascending  SortOrder = "asc"
-	Descending SortOrder = "desc"
-)
-
 func GenerateSlice(size int, bounds ...int) []int {
 	min, max := 0, 100
 
