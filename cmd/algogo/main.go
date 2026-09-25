@@ -16,6 +16,6 @@ func main() {
 	arr := sorting.GenerateSlice(cfg.Size, cfg.Min, cfg.Max)
 
 	fmt.Printf("Исходный массив: %v\n", arr)
-	sorting.StupidSort(arr, cfg.Order)
+	sorting.Sort(arr, cfg.Algorithm, cfg.Order)
 	fmt.Printf("Отсортированный (%s): %v\n", cfg.Order, arr)
 }

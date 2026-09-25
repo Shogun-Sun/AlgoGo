@@ -8,7 +8,7 @@ import (
 )
 
 type Config struct {
-	Algorithm string
+	Algorithm sorting.AlgorithmType
 	Size      int
 	Verbose   bool
 	Order     sorting.SortOrder
@@ -19,8 +19,9 @@ type Config struct {
 func ParseFlags() (Config, error) {
 	var cfg Config
 	var orderStr string
+	var algoStr string
 
-	flag.StringVar(&cfg.Algorithm, "algo", "stupid", "Алгоритм сортировки(stupid, bubble)")
+	flag.StringVar(&algoStr, "algo", "stupid", "Алгоритм сортировки(stupid, bubble)")
 	flag.IntVar(&cfg.Size, "size", 100, "Размер массива")
 	flag.BoolVar(&cfg.Verbose, "verbose", false, "Вывод массива до и после сортировки")
 	flag.StringVar(&orderStr, "order", "asc", "Порядок сортировки: asc (по возрастанию) или desc (по убыванию)")
@@ -36,6 +37,15 @@ func ParseFlags() (Config, error) {
 		cfg.Order = sorting.Descending
 	default:
 		return Config{}, fmt.Errorf("неизвестный порядок сортировки '%s': используйте 'asc' или 'desc'", orderStr)
+	}
+
+	switch algoStr {
+	case "stupid":
+		cfg.Algorithm = sorting.StupidAlgorithm
+	case "bubble":
+		cfg.Algorithm = sorting.BubbleAlgorithm
+	default:
+		return Config{}, fmt.Errorf("неизвестный алгоритм сортировки '%s'", algoStr)
 	}
 
 	return cfg, nil
