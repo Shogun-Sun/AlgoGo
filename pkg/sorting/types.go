@@ -9,6 +9,7 @@ const (
 )
 
 const (
-	StupidAlgorithm AlgorithmType = "stupid"
-	BubbleAlgorithm AlgorithmType = "bubble"
+	StupidAlgorithm             AlgorithmType = "stupid"
+	BubbleAlgorithm             AlgorithmType = "bubble"
+	BubbleOptimizationAlgorithm AlgorithmType = "bubble-optimization"
 )

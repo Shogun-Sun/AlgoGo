@@ -44,6 +44,8 @@ func ParseFlags() (Config, error) {
 		cfg.Algorithm = sorting.StupidAlgorithm
 	case "bubble":
 		cfg.Algorithm = sorting.BubbleAlgorithm
+	case "bubble-optimization":
+		cfg.Algorithm = sorting.BubbleOptimizationAlgorithm
 	default:
 		return Config{}, fmt.Errorf("неизвестный алгоритм сортировки '%s'", algoStr)
 	}

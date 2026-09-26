@@ -6,6 +6,8 @@ func Sort(arr []int, algorithm AlgorithmType, sortOrder SortOrder) []int {
 		return StupidSort(arr, sortOrder)
 	case BubbleAlgorithm:
 		return BubbleSort(arr, sortOrder)
+	case BubbleOptimizationAlgorithm:
+		return BubbleOptimization(arr, sortOrder)
 	default:
 		return StupidSort(arr, sortOrder)
 	}
