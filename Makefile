@@ -10,6 +10,12 @@ $(BENCHSTAT):
 bench-test: $(BENCHSTAT)
 	@go test -bench=. -benchmem -count=6 ./test | $(BENCHSTAT) -
 
+bench-bubble: $(BENCHSTAT)
+	@go test -bench=BenchmarkBubbleSort -benchmem -count=6 ./test | $(BENCHSTAT) -
+
+bench-stupid: $(BENCHSTAT)
+	@go test -bench=BenchmarkStupidSort -benchmem -count=6 ./test | $(BENCHSTAT) -
+
 run:
 	@go mod tidy && go run ./cmd/algogo
 
